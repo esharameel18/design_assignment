@@ -10,7 +10,7 @@ module USR_tb();
     wire sout;
     wire [3:0] pout;
 
-    universal_shift_reg uut (.clk  (clk),
+    universal_shift_reg dut (.clk  (clk),
         .rst  (rst),
         .sin  (sin),
         .load (load),
