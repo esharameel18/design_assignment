@@ -25,6 +25,10 @@ typedef enum logic [1:0]
 } state_t;
 
 state_t state,next_state;
+
+//------------------------------------------------
+// State Register
+//------------------------------------------------
 always_ff @(posedge PCLK or negedge PRESETn)
 begin
     if(!PRESETn)
@@ -32,6 +36,10 @@ begin
     else
         state <= next_state;
 end
+
+//------------------------------------------------
+// Next State Logic
+//------------------------------------------------
 always_comb
 begin
     next_state = state;
@@ -64,6 +72,10 @@ begin
 
     endcase
 end
+
+//------------------------------------------------
+// Output Logic
+//------------------------------------------------
 always_ff @(posedge PCLK or negedge PRESETn)
 begin
     if(!PRESETn)
@@ -109,5 +121,4 @@ begin
         endcase
     end
 end
-
 endmodule
